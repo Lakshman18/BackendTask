@@ -1,8 +1,17 @@
+using BLL.Interfaces;
+using BLL.Services;
+using DAL.Interfaces;
+using DAL.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<IApplicationFormDAL, ApplicationFormDAL>();
+builder.Services.AddScoped<IApplicationFormBLL, ApplicationFormBLL>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
